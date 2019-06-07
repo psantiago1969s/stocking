@@ -1,2 +1,27 @@
 <h1>Stocking</h1>
 <p>Welcome to my new home page</p>
+
+<%
+#saying root_path tells it where to send the info back to
+#do tells it to loop thru and do next lines
+#end ends the do loop
+#text field called ticker, nil add necessary placeholder gives name
+#submit tag is the button
+%>
+
+<%= form_tag root_path, :method => 'POST' do %>
+	<%= text_field_tag 'ticker', nil, placeholder: "Enter Ticker Symbol", size: 50 %>
+	<%= submit_tag 'Lookup' %>
+<% end %>
+<br/>
+
+<% if @stock %>
+	<%= @stock.company_name %><br/>
+	$<%= @stock.latest_price %>
+<% elsif @nothing %>
+   <%= @nothing %>
+<% end %>
+
+<% if @error %>
+	<%= @error %>
+<% end %>

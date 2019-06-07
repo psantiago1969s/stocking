@@ -17,10 +17,14 @@
   <%= render 'home/navbar' %>
 
 	<div class="container">
+    <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
 		<br/> 
 	    <%= yield %>
 	</div>
 
+<br/> <br/> 
   <%= render 'home/footer' %>
   </body>
 </html>
